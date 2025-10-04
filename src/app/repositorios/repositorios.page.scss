@@ -1,0 +1,114 @@
+// Container da Barra de Pesquisa e Botão
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+
+  ion-searchbar {
+    flex: 1; // Faz a barra de pesquisa ocupar o espaço disponível
+    --border-radius: 12px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  ion-button {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    min-width: 48px; // Garante que o botão não seja espremido
+    width: 48px;     // Deixa o botão quadrado
+    height: 48px;
+  }
+}
+
+// Estilo para a mensagem de erro
+.error-message {
+  text-align: center;
+  padding: 20px;
+  margin: 0 0 24px 0;
+  color: #ff595e; // Um tom de vermelho para alerta
+  background-color: rgba(255, 89, 94, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 89, 94, 0.3);
+}
+
+// Estilo para o spinner de carregamento
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+
+  ion-spinner {
+    transform: scale(1.5);
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+  }
+}
+
+// Remove o fundo da lista para vermos o fundo da página
+ion-list {
+  background: transparent;
+  padding-top: 0;
+  padding-bottom: 16px;
+}
+
+// Estilo de cada item/repositório
+ion-item {
+  --background: #1f1f1f;
+  margin: 0 0 12px 0; // Remove margens laterais para aproveitar o padding do ion-content
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  --border-width: 0 !important; // Remove as linhas separadoras padrão
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  h2 {
+    font-weight: 700;
+    color: var(--ion-color-primary);
+    margin-bottom: 8px;
+  }
+
+  p:first-of-type {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: normal;
+    margin-bottom: 12px;
+  }
+
+  p:last-of-type {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  ion-icon {
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  ion-icon[slot="start"] {
+    font-size: 1.8rem;
+    margin-right: 16px;
+  }
+}
+
+// Container para os botões na parte inferior da página
+.button-group-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px; // Espaço acima dos botões
+}

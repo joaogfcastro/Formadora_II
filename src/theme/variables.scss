@@ -1,0 +1,36 @@
+/* Para mais informações sobre como customizar, visite:
+   https://ionicframework.com/docs/theming/theming-with-css-variables */
+
+:root {
+  /*****************
+   * TEMA DARK APP
+   *****************/
+
+  /* COR PRINCIPAL (ACCENT) */
+  --ion-color-primary: #00d9ff;
+  --ion-color-primary-rgb: 0, 217, 255;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
+  --ion-color-primary-shade: #00bede;
+  --ion-color-primary-tint: #1adcfd;
+
+  /* COR DE FUNDO PRINCIPAL DO APP */
+  --ion-background-color: #121212;
+  --ion-background-color-rgb: 18, 18, 18;
+
+  /* COR DO TEXTO PADRÃO */
+  --ion-text-color: #ffffff;
+  --ion-text-color-rgb: 255, 255, 255;
+
+  /* CORES PARA COMPONENTES (CARDS, ITEMS, TOOLBAR) */
+  --ion-toolbar-background: #1f1f1f;
+  --ion-item-background: #1f1f1f;
+  --ion-card-background: #1f1f1f;
+
+  /* CORES SECUNDÁRIAS */
+  --ion-color-secondary: #5260ff;
+  --ion-color-tertiary: #5260ff;
+
+  --ion-border-color: #2e2e2e;
+  --ion-color-step-150: #2e2e2e;
+}

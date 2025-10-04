@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Buscar Repositórios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <!-- O título agora é dinâmico -->
+      <ion-title size="large">
+        {{ displayedUsername ? 'Repositórios de ' + displayedUsername : 'Buscar Repositórios' }}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Container da Barra de Pesquisa -->
+  <div class="search-container">
+    <ion-searchbar
+      placeholder="Digite um usuário do GitHub..."
+      [(ngModel)]="usernameToSearch"
+      (keydown.enter)="searchUser()"
+      show-clear-button="focus">
+    </ion-searchbar>
+    <ion-button (click)="searchUser()">
+      <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <!-- Indicador de Carregamento -->
+  <div *ngIf="isLoading" class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Buscando repositórios...</p>
+  </div>
+
+  <!-- Mensagem de Erro -->
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Lista de Repositórios -->
+  <ion-list *ngIf="!isLoading && !errorMessage">
+    <ion-item *ngFor="let repo of repos" [href]="repo.html_url" target="_blank" lines="none">
+      <ion-icon name="git-branch-outline" slot="start" color="primary"></ion-icon>
+      <ion-label>
+        <h2>{{ repo.name }}</h2>
+        <p>{{ repo.description || 'Sem descrição' }}</p>
+        <p>
+          <ion-icon name="star" color="warning"></ion-icon>
+          {{ repo.stargazers_count }} Stars | Linguagem: {{ repo.language || 'N/A' }}
+        </p>
+      </ion-label>
+    </ion-item>
+
+    <!-- Mensagem caso o usuário não tenha repositórios públicos -->
+    <div *ngIf="repos.length === 0 && displayedUsername" class="ion-text-center ion-padding">
+      <p>Este usuário não possui repositórios públicos.</p>
+    </div>
+  </ion-list>
+
+  <!-- Botões de navegação no final -->
+  <div class="button-group-bottom" *ngIf="!isLoading">
+    <ion-button expand="block" routerLink="/tabs/perfil" color="primary">
+      Ver Meu Perfil
+    </ion-button>
+    <ion-button expand="block" routerLink="/tabs/inicio" color="primary" fill="outline">
+      Voltar ao Início
+    </ion-button>
+  </div>
+</ion-content>

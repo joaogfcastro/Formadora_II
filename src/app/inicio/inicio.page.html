@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Apresentação</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Apresentação</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <h1>Bem-vindo ao Meu App!</h1>
+    <p>Este é o projeto da avaliação formadora II.</p>
+    <p>Utilize os botões abaixo ou a barra de navegação para explorar as outras páginas.</p>
+
+    <!-- Estes botões agora funcionarão -->
+    <ion-button expand="block" routerLink="/tabs/perfil" class="ion-margin-top">
+      Ver Meu Perfil
+    </ion-button>
+
+    <ion-button expand="block" routerLink="/tabs/repositorios" color="secondary">
+      Ver Meus Repositórios
+    </ion-button>
+  </div>
+</ion-content>
